@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  BreakingNews
+
+  Created by Pablo López Iborra on 12/2/22.
+  
+*/
+
+//Maintenance Dialog
+"title_maintenance_button_close_app"    = "Cerrar aplicación";
+"title_maintenance_dialog"              = "Mantenimiento";
+"text_maintenance_dialog"               = "Actualmente el servidor está en mantenimiento.\n\n Por favor intentelo de nuevo más tarde.";
+
+//Update Dialog
+"title_update_button_close_app"     = "Cerrar aplicación";
+"title_update_button_update_app"    = "Actualizar";
+"title_update_dialog"               = "Actualización disponible";
+"text_update_dialog"                = "Hay disponible una nueva versión de la aplicación en la App Store. Para poder seguir utilizandola con normalidad, debe actualizarla a la nueva versión.";

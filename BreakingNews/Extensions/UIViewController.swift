@@ -1,0 +1,26 @@
+//
+//  UIViewController.swift
+//  BreakingNews
+//
+//  Created by Pablo López Iborra on 12/2/22.
+//
+
+import Foundation
+import UIKit
+
+extension UIViewController {
+    
+    func loadViewController(_ viewController: UIViewController, animated: Bool, _ modalPresentationStyle: UIModalPresentationStyle?, _ modalTransitionStyle: UIModalTransitionStyle?, completion: (() -> Void)?) {
+        
+        if let modalPresentationStyle = modalPresentationStyle {
+            viewController.modalPresentationStyle = modalPresentationStyle
+        }
+        
+        if let modalTransitionStyle = modalTransitionStyle {
+            viewController.modalTransitionStyle = modalTransitionStyle
+        }
+        
+        self.present(viewController, animated: animated, completion: completion)
+    }
+    
+}
