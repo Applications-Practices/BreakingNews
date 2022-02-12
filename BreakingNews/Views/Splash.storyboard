@@ -15,23 +15,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-ed-pbx">
-                                <rect key="frame" x="90" y="331" width="234" height="234"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="4EV-bt-5CB"/>
-                                    <constraint firstAttribute="width" secondItem="5Q3-ed-pbx" secondAttribute="height" multiplier="1:1" id="9Ie-D3-7p0"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tCZ-n6-zcP">
+                                <rect key="frame" x="90" y="306" width="234" height="284"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-ed-pbx">
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="234"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="4EV-bt-5CB"/>
+                                            <constraint firstAttribute="width" secondItem="5Q3-ed-pbx" secondAttribute="height" multiplier="1:1" id="9Ie-D3-7p0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="crz-t0-dEG">
+                                        <rect key="frame" x="107" y="264" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5Q3-ed-pbx" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FLc-7C-uQz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5Q3-ed-pbx" secondAttribute="trailing" constant="90" id="oJJ-wj-IPv"/>
-                            <constraint firstItem="5Q3-ed-pbx" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="w0Z-5l-Fgx"/>
-                            <constraint firstItem="5Q3-ed-pbx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="90" id="zRt-kr-Lht"/>
+                            <constraint firstItem="tCZ-n6-zcP" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="PVK-Tu-ZGd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tCZ-n6-zcP" secondAttribute="trailing" constant="90" id="jx0-p8-N1Q"/>
+                            <constraint firstItem="tCZ-n6-zcP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="90" id="lgJ-oi-FUb"/>
+                            <constraint firstItem="tCZ-n6-zcP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="u7v-5p-zIG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="crz-t0-dEG" id="fUI-OF-kfW"/>
                         <outlet property="imageView" destination="5Q3-ed-pbx" id="IZN-di-Faj"/>
                     </connections>
                 </viewController>

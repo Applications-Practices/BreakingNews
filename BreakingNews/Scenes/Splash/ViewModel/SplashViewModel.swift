@@ -16,8 +16,12 @@ class SplashViewModel {
         return self.model.image
     }
     
-    func getBackgroundColor () -> UIColor {
+    func getBackgroundColor() -> UIColor {
         return self.model.backgroundColor
+    }
+    
+    func getActivityIndicatorColor() -> UIColor {
+        return self.model.activityIndicatorColor
     }
     
     func getDestinationStoryboardIdentifier() -> String {

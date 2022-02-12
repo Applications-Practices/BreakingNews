@@ -25,4 +25,11 @@ class R {
         return configuration
     }
     
+    static func setDefaultConfiguration() {
+        UITabBar.appearance().backgroundColor = R.Colors.tabBarBarBackground
+        UITabBar.appearance().tintColor = R.Colors.tabBarSelectedItemColor
+        UITabBar.appearance().unselectedItemTintColor = R.Colors.tabBarUnselectedItemColor
+        UITabBar.appearance().isOpaque = false
+    }
+    
 }

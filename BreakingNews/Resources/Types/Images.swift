@@ -16,6 +16,11 @@ extension R {
             return UIImage(named: "logo")!
         }
         
+        //TabBar
+        static var tabBarFirstItem: UIImage {
+            return UIImage(systemName: "house")!
+        }
+        
     }
     
 }

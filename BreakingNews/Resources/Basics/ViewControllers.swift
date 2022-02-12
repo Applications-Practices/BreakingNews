@@ -15,6 +15,10 @@ extension R {
         //MARK: Splash
         static var splashViewController = "SplashViewController"
         
+        //MARK: TabBar
+        static var tabBarNavigationController   = "TabBarNavigationController"
+        static var tabBarViewController         = "TabBarViewController"
+        
         //MARK: Home
         static var homeNavigationController = "HomeNavigationController"
         static var homeViewController       = "HomeViewController"

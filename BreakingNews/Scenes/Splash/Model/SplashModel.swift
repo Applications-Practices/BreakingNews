@@ -18,11 +18,15 @@ class SplashModel {
         return R.Colors.splashBackground
     }
     
+    var activityIndicatorColor: UIColor {
+        return R.Colors.splashActivityIndicatorColor
+    }
+    
     var destinationStoryboardIdentifier: String {
-        return R.Storyboards.home
+        return R.Storyboards.tabBar
     }
     
     var destinationViewControllerIdentifier: String {
-        return R.ViewControllers.homeNavigationController
+        return R.ViewControllers.tabBarNavigationController
     }
 }

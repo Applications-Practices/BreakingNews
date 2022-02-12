@@ -10,4 +10,21 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private var viewModel = HomeViewModel()
+    
+    override func viewDidLoad() {
+        self.setup()
+    }
+    
+    func setup() {
+        self.setDefaultElements()
+    }
+    
+    func setDefaultElements() {
+        self.setBackgroundColor()
+    }
+    
+    func setBackgroundColor() {
+        self.view.backgroundColor = self.viewModel.getBackgroundColor()
+    }
 }

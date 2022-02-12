@@ -13,6 +13,9 @@ extension R {
         //MARK: Splash
         static var splash = "Splash"
         
+        //MARK: TabBar
+        static var tabBar = "TabBar"
+        
         //MARK: Home
         static var home = "Home"
     }
