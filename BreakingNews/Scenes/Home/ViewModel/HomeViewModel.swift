@@ -28,6 +28,18 @@ class HomeViewModel {
         return self.model.searchBarBorderColor
     }
     
+    func getSearchBarTintColor() -> UIColor {
+        return self.model.searchBarTintColor
+    }
+    
+    func getSearchBarTextColor() -> UIColor {
+        return self.model.searchBarTextColor
+    }
+    
+    func getSearchBarLeftImageColor() -> UIColor {
+        return self.model.searchBarLeftImageColor
+    }
+    
     func getSearchBarImage() -> UIImage {
         return self.model.searchBarImage
     }

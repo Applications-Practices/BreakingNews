@@ -40,6 +40,9 @@ public extension UIColor {
     class var homeCellBorderColor: UIColor {
         return UIColor(named: "homeCellBorderColor")!
     }
+    class var homeSearchBarTint: UIColor {
+        return UIColor(named: "homeSearchBarTint")!
+    }
     
 }
 

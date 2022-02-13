@@ -20,6 +20,9 @@ class SourceProvider: ApiProvider {
             guard let result = result else { return completion([]) }
 
             completion(result.sources)
+        }, failure: { error in
+            completion([])
+            print("Source error " + error)
         })
     }
     

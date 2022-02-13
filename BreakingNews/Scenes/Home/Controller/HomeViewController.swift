@@ -55,6 +55,9 @@ class HomeViewController: UIViewController {
         self.searchBar.showsCancelButton = true
         
         self.searchBar.backgroundColor = self.viewModel.getSearchBarBackgroundColor()
+        self.searchBar.tintColor = self.viewModel.getSearchBarTintColor()
+        self.searchBar.searchTextField.textColor = self.viewModel.getSearchBarTextColor()
+        self.searchBar.searchTextField.leftView?.tintColor = self.viewModel.getSearchBarLeftImageColor()
         self.searchBar.layer.borderWidth = self.viewModel.getSearchBarBoderWidth()
         self.searchBar.layer.borderColor = self.viewModel.getSearchBarBorderColor().cgColor
         self.searchBar.backgroundImage = UIImage()

@@ -20,6 +20,9 @@ class HeadlinesProvider: ApiProvider {
             guard let result = result else { return completion([]) }
 
             completion(result.articles)
+        }, failure: { error in
+            completion([])
+            print("Search error " + error)
         })
     }
     
@@ -32,6 +35,9 @@ class HeadlinesProvider: ApiProvider {
             guard let result = result else { return completion([]) }
 
             completion(result.articles)
+        }, failure: { error in
+            completion([])
+            print("Country error " + error)
         })
     }
     

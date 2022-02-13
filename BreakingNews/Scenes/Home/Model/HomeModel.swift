@@ -26,6 +26,18 @@ class HomeModel {
         return R.Colors.homeSearchBarBorder
     }
     
+    var searchBarTintColor: UIColor {
+        return R.Colors.homeSearchBarTint
+    }
+    
+    var searchBarTextColor: UIColor {
+        return R.Colors.homeSearchBarText
+    }
+    
+    var searchBarLeftImageColor: UIColor {
+        return R.Colors.homeSearchBarLeftImage
+    }
+    
     var searchBarImage: UIImage {
         return UIImage()
     }

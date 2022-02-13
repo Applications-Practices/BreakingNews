@@ -44,6 +44,15 @@ extension R {
         static var homeSearchBarBorder: UIColor {
             return UIColor.clear
         }
+        static var homeSearchBarTint: UIColor {
+            return UIColor.homeSearchBarTint
+        }
+        static var homeSearchBarText: UIColor {
+            return UIColor.gray
+        }
+        static var homeSearchBarLeftImage: UIColor {
+            return UIColor.gray
+        }
         static var homeTableViewBackground: UIColor {
             return UIColor.clear
         }
