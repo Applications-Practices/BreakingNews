@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="82D-uo-KOk">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7u8-rP-v21">
                                 <rect key="frame" x="0.0" y="95" width="414" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -30,16 +33,19 @@
                         <constraints>
                             <constraint firstItem="7u8-rP-v21" firstAttribute="top" secondItem="KYe-uo-ocW" secondAttribute="bottom" id="26u-H6-9x9"/>
                             <constraint firstItem="KYe-uo-ocW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2DA-UL-HAJ"/>
+                            <constraint firstItem="82D-uo-KOk" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="At4-d9-fVB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7u8-rP-v21" secondAttribute="trailing" id="Ejd-Bq-pCa"/>
                             <constraint firstItem="KYe-uo-ocW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="L44-ma-MhE"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7u8-rP-v21" secondAttribute="bottom" id="P9i-Oe-2ta"/>
                             <constraint firstItem="KYe-uo-ocW" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Qd1-VI-nVO"/>
+                            <constraint firstItem="82D-uo-KOk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dkd-t8-zsZ"/>
                             <constraint firstItem="7u8-rP-v21" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nQu-BZ-11w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gs6-rv-kgA"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="82D-uo-KOk" id="nNQ-SD-Skh"/>
                         <outlet property="searchBar" destination="KYe-uo-ocW" id="wUp-gW-ggr"/>
                         <outlet property="tableView" destination="7u8-rP-v21" id="ahr-6Q-aDB"/>
                     </connections>

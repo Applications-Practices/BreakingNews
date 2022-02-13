@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private var viewModel = HomeViewModel()
     
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     func setDefaultConfiguration() {
+        self.enableActivityIndicatorView(enable: true)
         self.setTableView()
     }
     
@@ -48,7 +50,7 @@ class HomeViewController: UIViewController {
     
     func setSearchBar() {
         self.searchBar.delegate = self
-        self.enableSearchBar(active: false)
+        self.enableSearchBar(enable: false)
         self.searchBar.showsCancelButton = true
         
         self.searchBar.backgroundColor = self.viewModel.getSearchBarBackgroundColor()
@@ -63,22 +65,32 @@ class HomeViewController: UIViewController {
     }
     
     @objc func refreshInformation() {
-        self.enableSearchBar(active: false)
+        self.enableSearchBar(enable: false)
         if self.lastSearch != "" {
-            self.getAllHeadlines(search: self.lastSearch)
+            self.getSearchHeadlines(search: self.lastSearch)
         }
         else {
             self.getCountryHeadlines(countryISO: self.defaultCountry)
         }
     }
     
-    func enableSearchBar(active: Bool) {
-        self.searchBar.isUserInteractionEnabled = active
-        if active {
+    func enableSearchBar(enable: Bool) {
+        self.searchBar.isUserInteractionEnabled = enable
+        if enable {
             self.searchBar.alpha = self.viewModel.getSearchBarEnableAlpha()
         }
         else {
             self.searchBar.alpha = self.viewModel.getSearchBarDisableAlpha()
+        }
+    }
+    
+    func enableActivityIndicatorView(enable: Bool) {
+        self.activityIndicatorView.isHidden = !enable
+        if enable {
+            self.activityIndicatorView.startAnimating()
+        }
+        else {
+            self.activityIndicatorView.stopAnimating()
         }
     }
     
@@ -95,6 +107,7 @@ class HomeViewController: UIViewController {
     }
     
     func reloadTableView() {
+        self.enableActivityIndicatorView(enable: false)
         self.refreshControl.endRefreshing()
         self.tableView.setContentOffset(.zero, animated: true)
         self.tableView.reloadData()
@@ -103,7 +116,7 @@ class HomeViewController: UIViewController {
     func getCountryHeadlines(countryISO: String) {
         HeadlinesProvider().getHeadlines(countryISO: countryISO, completion: { result in
             DispatchQueue.main.async {
-                self.enableSearchBar(active: true)
+                self.enableSearchBar(enable: true)
                 guard let result = result else { return }
                 self.headlines = result
                 self.reloadTableView()
@@ -111,10 +124,10 @@ class HomeViewController: UIViewController {
         })
     }
     
-    func getAllHeadlines(search: String) {
+    func getSearchHeadlines(search: String) {
         HeadlinesProvider().getSearchHeadlines(search: search, completion: { result in
             DispatchQueue.main.async {
-                self.enableSearchBar(active: true)
+                self.enableSearchBar(enable: true)
                 guard let result = result else { return }
                 self.headlines = result
                 self.reloadTableView()
@@ -157,9 +170,9 @@ extension HomeViewController: UISearchBarDelegate {
         
         if text != "" {
             if text != self.lastSearch {
-                self.enableSearchBar(active: false)
+                self.enableSearchBar(enable: false)
                 self.lastSearch = text
-                self.getAllHeadlines(search: text)
+                self.getSearchHeadlines(search: text)
             }
         }
         else {
