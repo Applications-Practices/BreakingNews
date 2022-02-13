@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     
+    //Default country to do first search
     private let defaultCountry = "gb"
     
     override func viewDidLoad() {
@@ -114,7 +115,7 @@ class HomeViewController: UIViewController {
     }
     
     func getCountryHeadlines(countryISO: String) {
-        HeadlinesProvider().getHeadlines(countryISO: countryISO, completion: { result in
+        HeadlinesProvider().getCountryHeadlines(countryISO: countryISO, completion: { result in
             DispatchQueue.main.async {
                 self.enableSearchBar(enable: true)
                 guard let result = result else { return }

@@ -11,6 +11,7 @@ extension R {
     
     struct Requests {
         
+        //MARK: Http method types
         enum METHOD : String {
             case GET
             case POST
@@ -18,10 +19,12 @@ extension R {
             case DELETE
         }
         
+        //MARK: Variables
         static var contentType      = "Content-Type"
         static var accept           = "Accept"
         static var applicationJson  = "application/json"
         
+        //MARK: Functions
         static func createRequest(url: URL, method: METHOD, body: [String:Any]?) -> URLRequest {
             var request = URLRequest(url: url)
             request.httpMethod = method.rawValue

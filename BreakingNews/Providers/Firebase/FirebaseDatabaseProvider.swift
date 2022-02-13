@@ -26,9 +26,7 @@ class FirebaseDatabaseProvider {
     static let REALTIME_DATABASE_BASE_URL   = "https://breakingnews-2dda2-default-rtdb.europe-west1.firebasedatabase.app/"
     static let REALTIME_DATABASE_CONFIG     = "config"
     
-    static let REALTIME_DATABASE_PATH_LIVE      = "live"
-    static let REALTIME_DATABASE_PATH_TEST      = "test"
-    static let REALTIME_DATABASE_PATH_DEV       = "dev"
+    static let REALTIME_DATABASE_PATH = R.bundleFirebaseDatabasePath
     
     static let REALTIME_DATABASE_MAINTENANCE    = "maintenance"
     static let REALTIME_DATABASE_UPDATE         = "version"
@@ -43,16 +41,7 @@ class FirebaseDatabaseProvider {
     
     // MARK: - RealtimeDatabase Path
     static var CURRENT_REALTIME_DATABASE_PATH: String {
-        switch Configuration.Environment.current {
-        case .RELEASE:
-            return self.REALTIME_DATABASE_CONFIG + "/" + self.REALTIME_DATABASE_PATH_LIVE
-        case .DEBUG:
-            return self.REALTIME_DATABASE_CONFIG + "/" + self.REALTIME_DATABASE_PATH_LIVE
-        case .TEST:
-            return self.REALTIME_DATABASE_CONFIG + "/" + self.REALTIME_DATABASE_PATH_TEST
-        case .DEV:
-            return self.REALTIME_DATABASE_CONFIG + "/" + self.REALTIME_DATABASE_PATH_DEV
-        }
+        return self.REALTIME_DATABASE_CONFIG + "/" + (self.REALTIME_DATABASE_PATH ?? "")
     }
     
     static func resetVariablesValues() {

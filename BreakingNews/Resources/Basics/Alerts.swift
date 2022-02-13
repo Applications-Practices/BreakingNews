@@ -12,6 +12,8 @@ extension R {
     
     struct Alerts {
         
+        //MARK: Functions
+        //Generic
         static func loadAlert(title: String, message: String, preferredStryle: UIAlertController.Style, actions: [UIAlertAction]) -> UIAlertController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStryle)
             
@@ -26,10 +28,12 @@ extension R {
             return UIAlertAction(title: title, style: style, handler: handler)
         }
         
+        //Maintenance Alert
         static func maintenanceAlert(actions: [UIAlertAction]) -> UIAlertController{
             return R.Alerts.loadAlert(title: R.Strings.titleMaintenanceDialog, message: R.Strings.textMaintenanceDialog, preferredStryle: .alert, actions: actions)
         }
         
+        //Update Alert
         static func updateAlert(actions: [UIAlertAction]) -> UIAlertController{
             return R.Alerts.loadAlert(title: R.Strings.titleUpdateDialog, message: R.Strings.textUpdateDialog, preferredStryle: .alert, actions: actions)
         }

@@ -12,6 +12,7 @@ extension R {
     
     struct TabBars {
         
+        //MARK: Functions
         static func loadItem(title: String, image: UIImage, selectedImage: UIImage) -> UITabBarItem {
             return UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         }

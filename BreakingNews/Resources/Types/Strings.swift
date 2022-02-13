@@ -12,7 +12,7 @@ extension R {
     
     struct Strings {
         
-        //Maintenance Dialog
+        //MARK: Maintenance Dialog
         static var titleMaintenanceButtonCloseApp: String {
             return NSLocalizedString("title_maintenance_button_close_app", comment: "")
         }
@@ -23,7 +23,7 @@ extension R {
             return NSLocalizedString("text_maintenance_dialog", comment: "")
         }
         
-        //Update Dialog
+        //MARK: Update Dialog
         static var titleUpdateButtonCloseApp: String {
             return NSLocalizedString("title_update_button_close_app", comment: "")
         }

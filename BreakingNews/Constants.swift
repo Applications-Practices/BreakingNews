@@ -9,11 +9,11 @@ import Foundation
 
 class Constants {
     
-    //App Store
+    //MARK: App Store
     static var APP_STORE_BASE_URL   = "itms-apps://apple.com/app/id"
     static var CURRENT_APP_STORE_ID = ""
     
-    //API
+    //MARK: API
     static var API_BASE_URL                         = "https://newsapi.org/v2"
     static var API_URL_CUSTOM_SEARCH_SUFIX          = "/everything"
     static var API_URL_TOP_HEADLINES_SUFIX          = "/top-headlines"

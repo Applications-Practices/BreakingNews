@@ -10,6 +10,8 @@ import UIKit
 
 extension UIApplication {
     
+    //MARK: Variables
+    //Main app windo
     class var keyWindow: UIWindow? {
         // Get connected scenes
         return UIApplication.shared.connectedScenes
@@ -23,6 +25,8 @@ extension UIApplication {
             .first(where: \.isKeyWindow)
     }
     
+    //MARK: Functions
+    //Return current ViewController
     class func getCurrentViewController() -> UIViewController? {
         let keyWindow = UIApplication.keyWindow
 

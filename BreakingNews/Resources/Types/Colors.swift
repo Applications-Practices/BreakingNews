@@ -12,7 +12,7 @@ extension R {
     
     struct Colors {
         
-        //Splash
+        //MARK: Splash
         static var splashBackground: UIColor {
             return UIColor.splashBackground
         }
@@ -20,7 +20,7 @@ extension R {
             return UIColor.black
         }
         
-        //TabBar
+        //MARK: TabBar
         static var tabBarBackground: UIColor {
             return UIColor.clear
         }
@@ -34,7 +34,7 @@ extension R {
             return UIColor.tabBarSelectedItem
         }
         
-        //Home
+        //MARK: Home
         static var homeBackground: UIColor {
             return UIColor.mainBackground
         }
@@ -48,7 +48,7 @@ extension R {
             return UIColor.clear
         }
         
-        //HomeTableViewCell
+        //MARK: HomeTableViewCell
         static var homeCellBackground: UIColor {
             return UIColor.clear
         }

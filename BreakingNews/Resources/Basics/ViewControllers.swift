@@ -12,14 +12,15 @@ extension R {
     
     struct ViewControllers {
         
-        //MARK: Splash
+        //MARK: Varibales
+        //Splash
         static var splashViewController = "SplashViewController"
         
-        //MARK: TabBar
+        //TabBar
         static var tabBarNavigationController   = "TabBarNavigationController"
         static var tabBarViewController         = "TabBarViewController"
         
-        //MARK: Home
+        //Home
         static var homeNavigationController = "HomeNavigationController"
         static var homeViewController       = "HomeViewController"
         

@@ -27,6 +27,8 @@
 			</array>
 		</dict>
 	</dict>
+	<key>Firebase database path</key>
+	<string>$(REALTIME_DATABASE_PATH)</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 </dict>

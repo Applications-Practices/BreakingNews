@@ -10,6 +10,7 @@ import UIKit
 
 public extension UIColor {
     
+    //MARK: Custom Colors
     //App
     class var mainBackground: UIColor {
         return UIColor(named: "mainBackground")!

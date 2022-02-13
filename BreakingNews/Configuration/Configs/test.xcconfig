@@ -14,3 +14,4 @@ BUNDLE_IDENTIFIER = com.pabloliborra.custombreakingnews.test
 API_KEY = f63c22f7136746138f46bc5c3b1c58ac
 
 FIREBASE_FILE_NAME = GoogleService-Info-Test
+REALTIME_DATABASE_PATH = test

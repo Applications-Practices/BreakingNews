@@ -9,6 +9,12 @@ import Foundation
 
 class ApiProvider {
 
+    //MARK: Functions
+    
+    //Create and send generic Request to use with every Model.
+    //Return
+    //-ModelResponse if request is okey.
+    //-Nil if request is invali
     func commonRequest<T: Codable>(entity: T.Type, url:URL, method: R.Requests.METHOD, body: [String:Any]?, decodingStrategy: JSONDecoder.KeyDecodingStrategy?, completion: @escaping (_ data: T?) -> ()) {
         let request = R.Requests.createRequest(url: url, method: method, body: body)
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in

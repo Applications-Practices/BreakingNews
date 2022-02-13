@@ -12,10 +12,12 @@ extension R {
     
     struct TableViews {
         
+        //MARK:  Variables
         //Home
         static var homeTableViewCell            = "HomeTableViewCell"
         static var homeTableViewCellIdentifier  = "homeTableViewCell"
         
+        //MARK: Functions
         static func registerTable(tableView: UITableView, nibName: String, cellIdentifier: String) {
             tableView.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         }

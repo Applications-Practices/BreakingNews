@@ -10,13 +10,14 @@ import Foundation
 extension R {
     
     struct Storyboards {
-        //MARK: Splash
+        //MARK: Variables
+        //Splash
         static var splash = "Splash"
         
-        //MARK: TabBar
+        //TabBar
         static var tabBar = "TabBar"
         
-        //MARK: Home
+        //Home
         static var home = "Home"
     }
     

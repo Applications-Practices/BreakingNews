@@ -10,6 +10,8 @@ import UIKit
 
 extension UIViewController {
     
+    //MARK: Functions
+    //Load new ViewController with custom configuration
     func loadViewController(_ viewController: UIViewController, animated: Bool, _ modalPresentationStyle: UIModalPresentationStyle?, _ modalTransitionStyle: UIModalTransitionStyle?, completion: (() -> Void)?) {
         
         if let modalPresentationStyle = modalPresentationStyle {
