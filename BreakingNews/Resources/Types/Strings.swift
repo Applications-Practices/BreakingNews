@@ -12,29 +12,29 @@ extension R {
     
     struct Strings {
         
-        //MARK: Maintenance Dialog
+        //MARK: Maintenance Alert
         static var titleMaintenanceButtonCloseApp: String {
             return NSLocalizedString("title_maintenance_button_close_app", comment: "")
         }
-        static var titleMaintenanceDialog: String {
-            return NSLocalizedString("title_maintenance_dialog", comment: "")
+        static var titleMaintenanceAlert: String {
+            return NSLocalizedString("title_maintenance_alert", comment: "")
         }
-        static var textMaintenanceDialog: String {
-            return NSLocalizedString("text_maintenance_dialog", comment: "")
+        static var textMaintenanceAlert: String {
+            return NSLocalizedString("text_maintenance_alert", comment: "")
         }
         
-        //MARK: Update Dialog
+        //MARK: Update Alert
         static var titleUpdateButtonCloseApp: String {
             return NSLocalizedString("title_update_button_close_app", comment: "")
         }
         static var titleUpdateButtonUpdateApp: String {
             return NSLocalizedString("title_update_button_update_app", comment: "")
         }
-        static var titleUpdateDialog: String {
-            return NSLocalizedString("title_update_dialog", comment: "")
+        static var titleUpdateAlert: String {
+            return NSLocalizedString("title_update_alert", comment: "")
         }
-        static var textUpdateDialog: String {
-            return NSLocalizedString("text_update_dialog", comment: "")
+        static var textUpdateAlert: String {
+            return NSLocalizedString("text_update_alert", comment: "")
         }
         
     }

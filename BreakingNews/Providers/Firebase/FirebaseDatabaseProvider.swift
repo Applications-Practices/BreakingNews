@@ -11,48 +11,62 @@ import UIKit
 
 class FirebaseDatabaseProvider {
     
+    //MARK: Variables
+    //Database check type
     enum RealtimeAlertType {
         case MAINTENANCE
         case UPDATE
     }
     
-    // Realtime Database
+    //Realtime Database Check State
     enum StateCheckRealtimeDatabase {
+        //Not checked
         case NON
-        case CHECKED_FALSE
-        case CHECKED_TRUE
+        //Checked and has good result to continue
+        case CHECKED_PASS
+        //Checked and dont have good result to continue
+        case CHECKED_NON_PASS
     }
     
+    //Main url from server
     static let REALTIME_DATABASE_BASE_URL   = "https://breakingnews-2dda2-default-rtdb.europe-west1.firebasedatabase.app/"
+    //First level of json
     static let REALTIME_DATABASE_CONFIG     = "config"
     
+    //Next Json path according to environment
     static let REALTIME_DATABASE_PATH = R.bundleFirebaseDatabasePath
     
+    //Type of database request
     static let REALTIME_DATABASE_MAINTENANCE    = "maintenance"
     static let REALTIME_DATABASE_UPDATE         = "version"
     
+    //Varible to save state from database checks
     static var maintenanceState: StateCheckRealtimeDatabase = StateCheckRealtimeDatabase.NON
     static var updateState: StateCheckRealtimeDatabase      = StateCheckRealtimeDatabase.NON
     
-    static var MAINTENANCE_DIALOG_SHOWN = false
-    static var UPDATE_DIALOG_SHOWN      = false
+    //Save if some of alerts is current showing
+    static var MAINTENANCE_ALERT_SHOWN = false
+    static var UPDATE_ALERT_SHOWN      = false
         
+    //First check when app enter to foreground
     static private var FIRST_CHECK      = true
     
-    // MARK: - RealtimeDatabase Path
+    //Current Database Path
     static var CURRENT_REALTIME_DATABASE_PATH: String {
         return self.REALTIME_DATABASE_CONFIG + "/" + (self.REALTIME_DATABASE_PATH ?? "")
     }
     
     static func resetVariablesValues() {
-        self.MAINTENANCE_DIALOG_SHOWN = false
-        self.UPDATE_DIALOG_SHOWN = false
+        self.MAINTENANCE_ALERT_SHOWN = false
+        self.UPDATE_ALERT_SHOWN = false
     }
     
-    static func shouldShownDialog() {
-        self.returnFromAppStore()
+    //Check if app is comming to foreground and if it should show some alert
+    static func shouldShownAlert() {
+        self.checkShowSomeAlert()
     }
     
+    //Set database listener and return result from checks
     static func setDatabaseListeners(completion: @escaping (_ state: Bool?) -> Void) {
         self.setMaintenanceListener(completion: {result in
             if result != nil {
@@ -68,11 +82,13 @@ class FirebaseDatabaseProvider {
         })
     }
             
+    //Do logic from checks.
+    //Only return value if both components have been checked
     static private func checkStateDatabase(completion: @escaping (_ state: Bool?) -> Void) {
         if (FirebaseDatabaseProvider.maintenanceState == self.StateCheckRealtimeDatabase.NON || FirebaseDatabaseProvider.updateState == self.StateCheckRealtimeDatabase.NON) {
             completion(nil)
         }
-        else if (FirebaseDatabaseProvider.maintenanceState == self.StateCheckRealtimeDatabase.CHECKED_TRUE || FirebaseDatabaseProvider.updateState == self.StateCheckRealtimeDatabase.CHECKED_TRUE) {
+        else if (FirebaseDatabaseProvider.maintenanceState == self.StateCheckRealtimeDatabase.CHECKED_NON_PASS || FirebaseDatabaseProvider.updateState == self.StateCheckRealtimeDatabase.CHECKED_NON_PASS) {
             completion(false)
         }
         else {
@@ -80,7 +96,8 @@ class FirebaseDatabaseProvider {
         }
     }
     
-    // Maintenance
+    //Set Maintenance listener.
+    //Call create alert if listener return true.
     static private func setMaintenanceListener(completion: @escaping (_ state: Bool?) -> Void) {
         let myRef = Database.database(url: self.REALTIME_DATABASE_BASE_URL).reference()
         let maintenance = myRef.child(self.CURRENT_REALTIME_DATABASE_PATH).child(self.REALTIME_DATABASE_MAINTENANCE)
@@ -91,12 +108,12 @@ class FirebaseDatabaseProvider {
             FirebaseDatabaseProvider.maintenanceState = .NON
             
             if value {
-                self.maintenanceState = self.StateCheckRealtimeDatabase.CHECKED_TRUE
-                self.showMaintenanceDialog()
+                self.maintenanceState = self.StateCheckRealtimeDatabase.CHECKED_NON_PASS
+                self.showMaintenanceAlert()
                 completion(false)
             }
             else {
-                self.maintenanceState = self.StateCheckRealtimeDatabase.CHECKED_FALSE
+                self.maintenanceState = self.StateCheckRealtimeDatabase.CHECKED_PASS
                 
                 if self.FIRST_CHECK {
                     self.checkStateDatabase(completion: {result in
@@ -107,21 +124,23 @@ class FirebaseDatabaseProvider {
         })
     }
     
-    static private func showMaintenanceDialog() {
-        if !self.MAINTENANCE_DIALOG_SHOWN && self.updateState != self.StateCheckRealtimeDatabase.CHECKED_TRUE {
+    //Show maintenance alert
+    static private func showMaintenanceAlert() {
+        if !self.MAINTENANCE_ALERT_SHOWN && !self.UPDATE_ALERT_SHOWN {
             self.FIRST_CHECK = false
             
             guard let viewController = UIApplication.getCurrentViewController() else { return }
             
             let alert = self.createAlertType(type: .MAINTENANCE)
                 
-            self.MAINTENANCE_DIALOG_SHOWN = true
+            self.MAINTENANCE_ALERT_SHOWN = true
             
             viewController.loadViewController(alert, animated: true, nil, nil, completion: nil)
         }
     }
     
-    // Updates
+    //Set Update listener.
+    //Call create alert if listener return true.
     static private func setUpdateListener(completion: @escaping (_ state: Bool?) -> Void) {
         let myRef = Database.database(url: self.REALTIME_DATABASE_BASE_URL).reference()
         let update = myRef.child(self.CURRENT_REALTIME_DATABASE_PATH).child(self.REALTIME_DATABASE_UPDATE)
@@ -134,12 +153,12 @@ class FirebaseDatabaseProvider {
             if let code = R.bundleVersion {
                 let versionCode = Int(code)
                 if versionCode! < value {
-                    self.updateState = self.StateCheckRealtimeDatabase.CHECKED_TRUE
-                    self.showUpdateDialog()
+                    self.updateState = self.StateCheckRealtimeDatabase.CHECKED_NON_PASS
+                    self.showUpdateAlert()
                     completion(false)
                 }
                 else {
-                    self.updateState = self.StateCheckRealtimeDatabase.CHECKED_FALSE
+                    self.updateState = self.StateCheckRealtimeDatabase.CHECKED_PASS
                     
                     if self.FIRST_CHECK {
                         self.checkStateDatabase(completion: {result in
@@ -149,27 +168,29 @@ class FirebaseDatabaseProvider {
                 }
             }
             else {
-                self.updateState = self.StateCheckRealtimeDatabase.CHECKED_TRUE
-                self.showUpdateDialog()
+                self.updateState = self.StateCheckRealtimeDatabase.CHECKED_NON_PASS
+                self.showUpdateAlert()
                 completion(false)
             }
         })
     }
     
-    static private func showUpdateDialog() {
-        if !self.UPDATE_DIALOG_SHOWN && self.maintenanceState != self.StateCheckRealtimeDatabase.CHECKED_TRUE {
+    //Show update alert
+    static private func showUpdateAlert() {
+        if !self.UPDATE_ALERT_SHOWN && !self.MAINTENANCE_ALERT_SHOWN {
             self.FIRST_CHECK = false
             
             guard let viewController = UIApplication.getCurrentViewController() else { return }
             
             let alert = self.createAlertType(type: .UPDATE)
                 
-            self.UPDATE_DIALOG_SHOWN = true
+            self.UPDATE_ALERT_SHOWN = true
             
             viewController.loadViewController(alert, animated: true, nil, nil, completion: nil)
         }
     }
     
+    //Create alert according to type required
     static private func createAlertType(type: RealtimeAlertType) -> UIAlertController {
         switch type {
         case .MAINTENANCE:
@@ -192,23 +213,27 @@ class FirebaseDatabaseProvider {
         }
     }
     
+    //Do request to app store and open app on it
     static private func openAppStore() {
         R.URLs.openAppStoreURL(completion: { url in
             guard let url = url else { return }
             
             let notificationCenter = NotificationCenter.default
-            notificationCenter.addObserver(self, selector: #selector(self.returnFromAppStore), name: UIApplication.willEnterForegroundNotification, object: nil)
+            notificationCenter.addObserver(self, selector: #selector(self.checkShowSomeAlert), name: UIApplication.willEnterForegroundNotification, object: nil)
 
             R.URLs.openURL(url: url)
         })
     }
     
-    @objc static func returnFromAppStore() {
-        if self.updateState == StateCheckRealtimeDatabase.CHECKED_TRUE {
-            self.showUpdateDialog()
+    //Check if need show some alert
+    @objc static func checkShowSomeAlert() {
+        self.resetVariablesValues()
+        
+        if self.updateState == StateCheckRealtimeDatabase.CHECKED_NON_PASS {
+            self.showUpdateAlert()
         }
-        else if self.maintenanceState == StateCheckRealtimeDatabase.CHECKED_TRUE {
-            self.showMaintenanceDialog()
+        else if self.maintenanceState == StateCheckRealtimeDatabase.CHECKED_NON_PASS {
+            self.showMaintenanceAlert()
         }
     }
 }

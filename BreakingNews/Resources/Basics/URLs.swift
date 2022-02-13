@@ -38,7 +38,7 @@ extension R {
             UIApplication.shared.open(url)
         }
         
-        //Update Dialog
+        //Open App Store from Update Alert
         static func openAppStoreURL(completion: ((URL?) -> Void)) {
             if let url = self.createURL(string:Constants.APP_STORE_BASE_URL + Constants.CURRENT_APP_STORE_ID) {
                 completion(self.canOpenURL(url: url))

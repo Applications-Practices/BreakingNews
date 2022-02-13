@@ -30,12 +30,12 @@ extension R {
         
         //Maintenance Alert
         static func maintenanceAlert(actions: [UIAlertAction]) -> UIAlertController{
-            return R.Alerts.loadAlert(title: R.Strings.titleMaintenanceDialog, message: R.Strings.textMaintenanceDialog, preferredStryle: .alert, actions: actions)
+            return R.Alerts.loadAlert(title: R.Strings.titleMaintenanceAlert, message: R.Strings.textMaintenanceAlert, preferredStryle: .alert, actions: actions)
         }
         
         //Update Alert
         static func updateAlert(actions: [UIAlertAction]) -> UIAlertController{
-            return R.Alerts.loadAlert(title: R.Strings.titleUpdateDialog, message: R.Strings.textUpdateDialog, preferredStryle: .alert, actions: actions)
+            return R.Alerts.loadAlert(title: R.Strings.titleUpdateAlert, message: R.Strings.textUpdateAlert, preferredStryle: .alert, actions: actions)
         }
         
     }

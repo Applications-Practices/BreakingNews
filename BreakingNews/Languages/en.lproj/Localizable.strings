@@ -6,13 +6,13 @@
   
 */
 
-//Maintenance Dialog
+//Maintenance Alert
 "title_maintenance_button_close_app"    = "Close application";
-"title_maintenance_dialog"              = "Maintenance";
-"text_maintenance_dialog"               = "We are currently performing server maintenance. \n\nPlease try again later.";
+"title_maintenance_alert"               = "Maintenance";
+"text_maintenance_alert"                = "We are currently performing server maintenance. \n\nPlease try again later.";
 
-//Update Dialog
+//Update Alert
 "title_update_button_close_app"     = "Close application";
 "title_update_button_update_app"    = "Update";
-"title_update_dialog"               = "Update Available";
-"text_update_dialog"                = "There is a new version of the app available on App Store. In order to continue using it normally, you will need to update to this new version.";
+"title_update_alert"                = "Update Available";
+"text_update_alert"                 = "There is a new version of the app available on App Store. In order to continue using it normally, you will need to update to this new version.";
