@@ -119,7 +119,9 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 self.enableSearchBar(enable: true)
                 guard let result = result else { return }
-                self.headlines = result
+                if !result.isEmpty {
+                    self.headlines = result
+                }
                 self.reloadTableView()
             }
         })
@@ -130,7 +132,9 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 self.enableSearchBar(enable: true)
                 guard let result = result else { return }
-                self.headlines = result
+                if !result.isEmpty {
+                    self.headlines = result
+                }
                 self.reloadTableView()
             }
         })

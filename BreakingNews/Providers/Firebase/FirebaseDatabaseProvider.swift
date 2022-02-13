@@ -69,16 +69,16 @@ class FirebaseDatabaseProvider {
     //Set database listener and return result from checks
     static func setDatabaseListeners(completion: @escaping (_ state: Bool?) -> Void) {
         self.setMaintenanceListener(completion: {result in
-            if result != nil {
-                self.FIRST_CHECK = false
-                completion(result)
-            }
+            guard let result = result else { return }
+            
+            self.FIRST_CHECK = false
+            completion(result)
         })
         self.setUpdateListener(completion: {result in
-            if result != nil {
-                self.FIRST_CHECK = false
-                completion(result)
-            }
+            guard let result = result else { return }
+            
+            self.FIRST_CHECK = false
+            completion(result)
         })
     }
             

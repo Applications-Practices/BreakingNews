@@ -15,7 +15,8 @@ class ApiProvider {
     //Return
     //-ModelResponse if request is okey.
     //-Nil if request is invali
-    func commonRequest<T: Codable>(entity: T.Type, url:URL, method: R.Requests.METHOD, body: [String:Any]?, decodingStrategy: JSONDecoder.KeyDecodingStrategy?, completion: @escaping (_ data: T?) -> ()) {
+    func commonRequest<T: Codable>(entity: T.Type, url:URL?, method: R.Requests.METHOD, body: [String:Any]?, decodingStrategy: JSONDecoder.KeyDecodingStrategy?, completion: @escaping (_ data: T?) -> ()) {
+        guard let url = url else { return completion(nil) }
         let request = R.Requests.createRequest(url: url, method: method, body: body)
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             if let _ = error {
