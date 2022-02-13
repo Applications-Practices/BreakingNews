@@ -215,6 +215,7 @@
 				1A06D53727B9074100873C51 /* TableViews.swift */,
 				1A06D51727B7D3EE00873C51 /* Alerts.swift */,
 				1A06D51B27B7E51000873C51 /* URLs.swift */,
+				1A06D54B27B91F0A00873C51 /* Requests.swift */,
 			);
 			path = Basics;
 			sourceTree = "<group>";
@@ -396,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				1AD0AA2A27B7077400860A30 /* R.swift */,
-				1A06D54B27B91F0A00873C51 /* Requests.swift */,
 				1A06D51E27B8256500873C51 /* Basics */,
 				1A06D51D27B8255000873C51 /* Types */,
 			);
