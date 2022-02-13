@@ -19,5 +19,5 @@ class Constants {
     static var API_URL_TOP_HEADLINES_SUFIX          = "/top-headlines"
     static var API_URL_HEADLINES_ALL_SOURCES_SUFIX  = "/sources"
     static var API_URL_API_KEY_SUFIX                = "apiKey"
-    static var API_KEY                              = "f63c22f7136746138f46bc5c3b1c58ac"
+    static var API_KEY                              = R.bundleApiKey ?? ""
 }

@@ -1,0 +1,16 @@
+//
+//  dev.xcconfig
+//  BreakingNews
+//
+//  Created by Pablo López Iborra on 13/2/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUNDLE_NAME = Breaking News Dev
+BUNDLE_IDENTIFIER = com.pabloliborra.custombreakingnews.dev
+
+API_KEY = f63c22f7136746138f46bc5c3b1c58ac
+
+FIREBASE_FILE_NAME = GoogleService-Info-Dev

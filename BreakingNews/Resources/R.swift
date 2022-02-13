@@ -25,6 +25,16 @@ class R {
         return configuration
     }
     
+    static var bundleApiKey: String? {
+        guard let apiKey = Bundle.main.infoDictionary?["Api key"] as? String else { return nil }
+        return apiKey
+    }
+    
+    static var bundleFirebaseFileName: String? {
+        guard let firebaseFileName = Bundle.main.infoDictionary?["Firebase file name"] as? String else { return nil }
+        return firebaseFileName
+    }
+    
     static func setDefaultConfiguration() {
         UITabBar.appearance().backgroundColor = R.Colors.tabBarBarBackground
         UITabBar.appearance().isTranslucent = false
