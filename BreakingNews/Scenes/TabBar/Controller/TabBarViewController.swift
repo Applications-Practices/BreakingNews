@@ -17,8 +17,14 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func setup() {
-        self.setDefaultElements()
         self.setDefaultConfiguration()
+        self.setDefaultElements()
+    }
+    
+    func setDefaultConfiguration() {
+        self.delegate = self
+        
+        self.setDefaultItems()
     }
     
     func setDefaultElements() {
@@ -27,12 +33,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     func setBackgroundColor() {
         self.view.backgroundColor = self.viewModel.getBackgroundColor()
-    }
-    
-    func setDefaultConfiguration() {
-        self.delegate = self
-        
-        self.setDefaultItems()
     }
     
     func setDefaultItems() {
@@ -51,5 +51,4 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         
         return viewController
     }
-    
 }

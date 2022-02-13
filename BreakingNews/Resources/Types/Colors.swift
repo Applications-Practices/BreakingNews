@@ -38,6 +38,38 @@ extension R {
         static var homeBackground: UIColor {
             return UIColor.mainBackground
         }
+        static var homeSearchBarBackground: UIColor {
+            return UIColor.searchBarBackground
+        }
+        static var homeSearchBarBorder: UIColor {
+            return UIColor.clear
+        }
+        static var homeTableViewBackground: UIColor {
+            return UIColor.clear
+        }
+        
+        //HomeTableViewCell
+        static var homeCellBackground: UIColor {
+            return UIColor.clear
+        }
+        static var homeCellMainBackground: UIColor {
+            return UIColor.clear
+        }
+        static var homeCellBorderColor: UIColor {
+            return UIColor.homeCellBorderColor
+        }
+        static var homeCellOverlayBackground: UIColor {
+            return UIColor.homeCellOverlayBackground
+        }
+        static var homeCellTitleText: UIColor {
+            return UIColor.white
+        }
+        static var homeCellDescriptionBackground: UIColor {
+            return UIColor.clear
+        }
+        static var homeCellDescriptionText: UIColor {
+            return UIColor.black
+        }
             
     }
     

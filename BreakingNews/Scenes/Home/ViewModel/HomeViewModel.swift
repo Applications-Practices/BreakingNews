@@ -15,4 +15,48 @@ class HomeViewModel {
     func getBackgroundColor() -> UIColor {
         return self.model.backgroundColor
     }
+    
+    func getSearchBarBackgroundColor() -> UIColor {
+        return self.model.searchBarBackground
+    }
+    
+    func getSearchBarBoderWidth() -> CGFloat {
+        return self.model.searchBarBorderWidth
+    }
+    
+    func getSearchBarBorderColor() -> UIColor {
+        return self.model.searchBarBorderColor
+    }
+    
+    func getSearchBarImage() -> UIImage {
+        return self.model.searchBarImage
+    }
+    
+    func getSearchBarEnableAlpha() -> CGFloat {
+        return self.model.searchBarEnableAlpha
+    }
+    
+    func getSearchBarDisableAlpha() -> CGFloat {
+        return self.model.searchBarDisableAlpha
+    }
+
+    func getTableViewBackgroundColor() -> UIColor {
+        return self.model.tableViewBackgroundColor
+    }
+    
+    func getTableViewCell() -> String {
+        return self.model.tableViewCell
+    }
+    
+    func getTableViewCellIdentifier() -> String {
+        return self.model.tableViewCellIdentfier
+    }
+    
+    func getTableViewCellHeight() -> CGFloat {
+        return self.model.tableViewCellHeight
+    }
+    
+    func getDefaultUrl() -> URL? {
+        return self.model.defaultUrl
+    }
 }

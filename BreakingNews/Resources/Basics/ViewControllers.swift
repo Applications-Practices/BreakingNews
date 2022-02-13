@@ -34,6 +34,9 @@ extension R {
             }
         }
         
+        static func loadHomeViewController() -> UIViewController {
+            return R.ViewControllers.loadViewController(UINavigationController.self, R.Storyboards.home, R.ViewControllers.homeNavigationController)!
+        }
     }
     
 }

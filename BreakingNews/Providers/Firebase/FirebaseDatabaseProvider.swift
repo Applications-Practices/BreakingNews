@@ -210,7 +210,7 @@ class FirebaseDatabaseProvider {
             let notificationCenter = NotificationCenter.default
             notificationCenter.addObserver(self, selector: #selector(self.returnFromAppStore), name: UIApplication.willEnterForegroundNotification, object: nil)
 
-            UIApplication.shared.open(url)
+            R.URLs.openURL(url: url)
         })
     }
     

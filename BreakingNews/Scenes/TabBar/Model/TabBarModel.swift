@@ -15,7 +15,7 @@ class TabBarModel {
     }
     
     var firstItemViewController: UIViewController {
-        return HomeViewController()
+        return R.ViewControllers.loadHomeViewController()
     }
     
     var firstItemTitle: String {

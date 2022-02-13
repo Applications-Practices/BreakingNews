@@ -27,6 +27,7 @@ class R {
     
     static func setDefaultConfiguration() {
         UITabBar.appearance().backgroundColor = R.Colors.tabBarBarBackground
+        UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().tintColor = R.Colors.tabBarSelectedItemColor
         UITabBar.appearance().unselectedItemTintColor = R.Colors.tabBarUnselectedItemColor
         UITabBar.appearance().isOpaque = false

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 extension R {
     
@@ -21,6 +22,9 @@ extension R {
             return UIImage(systemName: "house")!
         }
         
+        static func loadImage(imageView: UIImageView, url: URL?, placeHolder: UIImage?, completion: ((Result<RetrieveImageResult, KingfisherError>) -> Void)?) {
+            imageView.kf.setImage(with: url, placeholder: placeHolder, completionHandler: completion)
+        }
     }
     
 }

@@ -21,7 +21,11 @@ class SplashViewController: UIViewController {
     }
     
     func setup() {
+        self.setDefaultConfiguration()
         self.setDefaultElements()
+    }
+    
+    func setDefaultConfiguration() {
         self.setFirebaseDatabaseListener()
     }
     
